@@ -13,10 +13,31 @@ export const getFilteredTrips = ({trips, filters}) => {
   }
 
   // TODO - filter by duration
+  if (filters.duration) {
+    output = output.filter(trip => (trip.days <= filters.duration.to && trip.days >= filters.duration.from));
+  }
 
   // TODO - filter by tags
 
+  if (filters.tags) {
+    output = output.filter(trip => filters.tags.every(tag => trip.tags.includes(tag)));
+  }
+
   // TODO - sort by cost descending (most expensive goes first)
+  output = output.sort((tripA, tripB) => {
+    const [priceA, priceB] = [tripA, tripB].map((trip) =>
+      Number(trip.cost.replace(/[^0-9.]+/g, ''))
+    );
+
+    if (priceA > priceB) {
+      return -1;
+    }
+    if (priceA < priceB) {
+      return 1;
+    } else {
+      return 0;
+    }
+  });
 
   return output;
 };
