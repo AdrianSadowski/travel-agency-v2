@@ -1,3 +1,8 @@
+next STEP: "Pierwszą informację już przekazaliśmy – jako props tripCost w powyższym fragmencie kodu – z komponentu Trip do OrderForm. W takim razie pozostaje jeszcze przekazanie tego propsa z komponentu OrderForm do OrderSummary, co z pewnością nie będzie już dla Ciebie problemem."
+
+~~~~Kontener dla OrderForm~~~~
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
