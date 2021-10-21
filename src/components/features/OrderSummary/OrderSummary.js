@@ -1,16 +1,16 @@
 import React from 'react';
 import styles from './OrderSummary.module.scss';
 import PropTypes from 'prop-types';
-// import { calculateTotal } from '../../../utils/calculateTotal';
-// import { formatPrice } from '../../../utils/formatPrice';
+import { calculateTotal } from '../../../utils/calculateTotal';
+import { formatPrice } from '../../../utils/formatPrice';
 // import pricing from '../data/pricing.json';
 
+// const option = this.props.order.option;
 
-
-const OrderSummary = ({cost}) =>(
+const OrderSummary = ({cost, options}) =>(
   <h2 className={styles.component}>Total:  
-    <strong>{cost}</strong>
-    {/* <strong>{formatPrice(calculateTotal(cost, ))}</strong> */}
+    {/* <strong>{cost}{options}</strong> */}
+    <strong>{formatPrice(calculateTotal(cost, options))}</strong>
   </h2>
 
 )
@@ -18,6 +18,7 @@ const OrderSummary = ({cost}) =>(
 
 OrderSummary.propTypes = {
   cost: PropTypes.string,
+  options: PropTypes.object,
 }
 
 export default OrderSummary
