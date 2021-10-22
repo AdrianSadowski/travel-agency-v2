@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 const OrderForm = (props) => (
   <Row>
     <Col xs={12}>
-      <OrderSummary cost={props.tripCost} options={props.order.options} />
+      <OrderSummary cost={props.tripCost} options={props.options} />
     </Col>
   </Row>
 )
