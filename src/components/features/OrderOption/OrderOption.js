@@ -2,11 +2,15 @@ import React from 'react';
 
 import styles from './OrderOption.module.scss';
 import OrderOptionCheckboxes from './OrderOptionCheckboxes';
+import OrderOptionDate from './OrderOptionDate';
 import OrderOptionDropdown from './OrderOptionDropdown';
 import OrderOptionIcons from './OrderOptionIcons';
 import OrderOptionNumber from './OrderOptionNumber';
+import OrderOptionText from './OrderOptionText';
 
 const optionTypes = {
+  text: OrderOptionText,
+  date: OrderOptionDate,
   dropdown: OrderOptionDropdown,
   icons: OrderOptionIcons,
   checkboxes: OrderOptionCheckboxes,
