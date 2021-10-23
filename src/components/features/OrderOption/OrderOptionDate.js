@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
+import DatePicker from 'react-datepicker'
 
-const OrderOptionDate = ({ values }) => (
-  <div>
-    <h3>Date</h3>
-  </div>
-);
+import "react-datepicker/dist/react-datepicker.css";
+
+const OrderOptionDate = () => {
+  const [startDate, setStartDate] = useState(new Date());
+  return (
+    <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
+
+  );
+};
 
 export default OrderOptionDate;
