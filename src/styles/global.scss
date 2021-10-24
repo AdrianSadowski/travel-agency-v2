@@ -21,3 +21,7 @@ a, a:hover, a:visited {
 }
 
 @import "./typography.scss";
+
+.react-datepicker__day--outside-month{
+  color: #b5bbb6!important;
+}
