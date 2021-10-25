@@ -10,5 +10,5 @@ describe('Component Hero', () => {
 
   it('should throw error without requried props', () => {
     expect(() => shallow (<Hero />)).toThrow();
-  })
+  });
 });

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './OrderOption.module.scss';
 import OrderOptionCheckboxes from './OrderOptionCheckboxes';
@@ -26,11 +27,18 @@ const OrderOption = ({id, setOrderOption, name, type, ...otherProps}) => {
       <div className={styles.component}>
         <h3 className={styles.title}>{name}</h3>
         <OptionComponent
-        setOptionValue={value => setOrderOption({[id]: value})}
+          setOptionValue={value => setOrderOption({[id]: value})}
           {...otherProps}
         />
       </div>
     );
   }
+};
+
+OrderOption.propTypes = {
+  id: PropTypes.string,
+  setOrderOption: PropTypes.func,
+  name: PropTypes.string,
+  type: PropTypes.string,
 };
 export default OrderOption;

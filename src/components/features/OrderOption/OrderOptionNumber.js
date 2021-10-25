@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './OrderOption.module.scss'
+import styles from './OrderOption.module.scss';
 import { formatPrice } from '../../../utils/formatPrice';
 
 const OrderOptionNumber = ({ price, currentValue, limits, setOptionValue }) => (
@@ -13,7 +13,7 @@ const OrderOptionNumber = ({ price, currentValue, limits, setOptionValue }) => (
       max={limits.max}
       onChange={event => setOptionValue(event.currentTarget.value)}
     />
-  {formatPrice(price)}
+    {formatPrice(price)}
   </div>
 );
 

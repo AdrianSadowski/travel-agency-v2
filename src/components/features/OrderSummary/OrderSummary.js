@@ -3,9 +3,7 @@ import styles from './OrderSummary.module.scss';
 import PropTypes from 'prop-types';
 import { calculateTotal } from '../../../utils/calculateTotal';
 import { formatPrice } from '../../../utils/formatPrice';
-// import pricing from '../data/pricing.json';
 
-// const option = this.props.order.option;
 
 const OrderSummary = ({cost, options}) =>(
   <h2 className={styles.component}>Total:  
@@ -13,12 +11,12 @@ const OrderSummary = ({cost, options}) =>(
     <strong>{formatPrice(calculateTotal(cost, options))}</strong>
   </h2>
 
-)
+);
 
 
 OrderSummary.propTypes = {
   cost: PropTypes.string,
   options: PropTypes.object,
-}
+};
 
-export default OrderSummary
+export default OrderSummary;

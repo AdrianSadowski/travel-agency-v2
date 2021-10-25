@@ -15,19 +15,20 @@ const OrderForm = (props) => (
           currentValue={props.options[pricingOption.id]}
           setOrderOption={props.setOrderOption}
           {...pricingOption}
-          />
+        />
       </Col>
     ))}
     <Col xs={12}>
       <OrderSummary cost={props.tripCost} options={props.options} />
     </Col>
   </Row>
-)
+);
 
 
 OrderForm.propTypes = {
   tripCost: PropTypes.string,
   options: PropTypes.object,
-}
+  setOrderOption: PropTypes.func,
+};
 
-export default OrderForm
+export default OrderForm;
