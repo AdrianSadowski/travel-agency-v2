@@ -1,4 +1,5 @@
-next STEP: "Pierwszą informację już przekazaliśmy – jako props tripCost w powyższym fragmencie kodu – z komponentu Trip do OrderForm. W takim razie pozostaje jeszcze przekazanie tego propsa z komponentu OrderForm do OrderSummary, co z pewnością nie będzie już dla Ciebie problemem."
+TO DO:
+Test elements and tags in component TripSummary
 
 ~~~~Kontener dla OrderForm~~~~
 
