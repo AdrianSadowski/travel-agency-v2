@@ -3,9 +3,9 @@ import { shallow } from 'enzyme';
 import TripSummary from './TripSummary';
 
 
-const tags=['test', '1234', 'qwerty'];
-const emptyTags=[];
-let component = shallow(<TripSummary 
+const tags = ['test', '1234', 'qwerty'];
+const emptyTags = [];
+let component = shallow(<TripSummary
   tags={tags}
   image={'image'}
   name={'name'}
@@ -16,7 +16,6 @@ let component = shallow(<TripSummary
 
 describe('Component TripSummary', () => {
   it('should generate correct url link', () => {
-    console.log(component.debug());
     expect(component.find('.link').prop('to')).toEqual('/trip/' + 'abc');
   });
 
@@ -28,7 +27,7 @@ describe('Component TripSummary', () => {
   });
 
   it('should throw error without required props', () => {
-    expect(() => shallow (<TripSummary />)).toThrow();
+    expect(() => shallow(<TripSummary />)).toThrow();
   });
 
   it('should render tags in correct order', () => {
@@ -38,7 +37,7 @@ describe('Component TripSummary', () => {
   });
 
   it('should not render div .tags without tags', () => {
-    component = shallow(<TripSummary   
+    component = shallow(<TripSummary
       tags={emptyTags}
       image={'image'}
       name={'name'}
@@ -46,6 +45,6 @@ describe('Component TripSummary', () => {
       cost={'100$'}
       id={'abc'}
     />);
-    expect(component.exists('.tags')).toEqual(false);
+    expect(component.exists('span .tags')).toEqual(false);
   });
 });
