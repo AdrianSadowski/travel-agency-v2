@@ -11,7 +11,7 @@ const OrderOptionNumber = ({ price, currentValue, limits, setOptionValue }) => (
       value={currentValue}
       min={limits.min}
       max={limits.max}
-      onChange={event => setOptionValue(event.currentTarget.value)}
+      onChange={event => setOptionValue(Number(event.currentTarget.value))}
     />
     {formatPrice(price)}
   </div>
@@ -19,7 +19,7 @@ const OrderOptionNumber = ({ price, currentValue, limits, setOptionValue }) => (
 
 OrderOptionNumber.propTypes = {
   price: PropTypes.string,
-  currentValue: PropTypes.number, // wyświetla błąd po zmianie ilości dorosłych w konsoli. Po zmianie na .string wyświetla błąd po wejściu w Trip oraz test typeNumber nie przechodzi ??
+  currentValue: PropTypes.number,
   limits: PropTypes.object,
   setOptionValue: PropTypes.func,
 };

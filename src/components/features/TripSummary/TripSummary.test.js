@@ -31,9 +31,9 @@ describe('Component TripSummary', () => {
   });
 
   it('should render tags in correct order', () => {
-    expect(component.find('.tag').at(0).text()).toEqual(tags[0]);
-    expect(component.find('.tag').at(1).text()).toEqual(tags[1]);
-    expect(component.find('.tag').at(2).text()).toEqual(tags[2]); //jak napisać to sprytniej? Bo klepanie prawie tego samego jest bez sensu :)
+    for (let i = 0; i<3; i++) {
+      expect(component.find('.tag').at(i).text()).toEqual(tags[i]);
+    } 
   });
 
   it('should not render div .tags without tags', () => {
