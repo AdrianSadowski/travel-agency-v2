@@ -6,7 +6,7 @@ import HappyHourAd from '../../features/HappyHoursAd/HappyHoursAd';
 const Hero = ({variant = '', titleText, imageSrc, ...otherProps}) => (
   <div {...otherProps} className={styles.component + variant.split(' ').map(name => ' ' + (styles[name] || name)).join('')}>
     <h2 className={styles.title}>{titleText}</h2>
-    <HappyHourAd />
+    <HappyHourAd title="Happy Hour" promoDescription="Promo is active. Buy now!" />
     <img className={styles.image} alt="hero" src={imageSrc} />
   </div>
 );
