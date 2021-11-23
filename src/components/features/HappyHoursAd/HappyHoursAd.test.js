@@ -29,3 +29,23 @@ describe('Component HappyHoursAd', () => {
     expect(component.find(select.title).text()).toBe(mockProps.title);
   });
 });
+
+describe('Component HappyHourdAd with mocked Date', () => {
+  const customDate = '2019-05-14T11:57:58.135Z';
+
+  const mockDate = class extends Date{
+    constructor(...args) {
+      if(args.length){
+        super(...args);
+      } else {
+        super(customDate);
+      }
+      return this;
+    }
+    static now(){
+      return (new Date(customDate)).getTime();
+    }
+    // next STEP:
+    // Podmiana klasy Date TEST: 4
+  };
+});
