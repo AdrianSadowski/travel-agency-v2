@@ -12,6 +12,8 @@ const mockProps = {
   promoDescription: 'promoDescriptionMockProps',
 };
 
+
+
 describe('Component HappyHoursAd', () => {
   it('should reder without crashing', () => {
     const component = shallow(<HappyHourAd />);
@@ -30,22 +32,36 @@ describe('Component HappyHoursAd', () => {
   });
 });
 
-describe('Component HappyHourdAd with mocked Date', () => {
-  const customDate = '2019-05-14T11:57:58.135Z';
 
-  const mockDate = class extends Date{
-    constructor(...args) {
-      if(args.length){
-        super(...args);
-      } else {
-        super(customDate);
-      }
-      return this;
+const trueDate = Date;
+const mockDate = (customDate) => class extends Date {
+  constructor(...args) {
+    if (args.length) {
+      super(...args);
+    } else {
+      super(customDate);
     }
-    static now(){
-      return (new Date(customDate)).getTime();
-    }
-    // next STEP:
-    // Podmiana klasy Date TEST: 4
-  };
+    return this;
+  }
+  static now() {
+    return (new Date(customDate)).getTime();
+  }
+};
+
+const checkDescriptionAtTime = (time, expectedDescription) => {
+  it(`should show correct at ${time}.135Z`, () => {
+    global.Date = mockDate(`2019-05-14T${time}.135Z`);
+
+    const component = shallow(<HappyHourAd {...mockProps} />);
+    const renderedTime = component.find(select.promoDescription).text();
+    expect(renderedTime).toEqual(expectedDescription);
+
+    global.Date = trueDate;
+  });
+};
+
+describe('Component HappyHourAd with mocked Date', () => {
+  checkDescriptionAtTime('11:57:58', '122');
+  checkDescriptionAtTime('11:59:59', '1');
+  checkDescriptionAtTime('13:00:00', 23 * 60 * 60 + '');
 });
