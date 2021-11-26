@@ -1,6 +1,7 @@
 import React from 'react';
-import {shallow} from 'enzyme';
+import { shallow } from 'enzyme';
 import Hero from './Hero';
+import HappyHourAd from '../../features/HappyHoursAd/HappyHoursAd';
 
 describe('Component Hero', () => {
   it('should render without crashing', () => {
@@ -11,13 +12,13 @@ describe('Component Hero', () => {
   });
 
   it('should throw error without requried props', () => {
-    expect(() => shallow (<Hero />)).toThrow();
+    expect(() => shallow(<Hero />)).toThrow();
   });
 
   it('should render correct title', () => {
     const expectedTitle = 'Lorem ipsum';
     const expectedImage = 'image.img;';
-    const component = shallow(<Hero titleText={expectedTitle} imageSrc={expectedImage} /> );
+    const component = shallow(<Hero titleText={expectedTitle} imageSrc={expectedImage} />);
 
     const renderedTitle = component.find('.title').text();
     expect(renderedTitle).toEqual(expectedTitle);
@@ -30,5 +31,13 @@ describe('Component Hero', () => {
     expect(component.hasClass('component')).toBe(true);
     expect(component.hasClass('small')).toBe(true);
     expect(component.hasClass('dummy')).toBe(true);
+  });
+
+  it('should render HappyHoursAd', () => {
+    const expectedDesc = 'Expected test Description';
+    const expectedTitle = 'Expected test Title';
+    const component = shallow(<HappyHourAd title={expectedTitle} promoDescription={expectedDesc} />);
+
+    expect(component).toBeTruthy;
   });
 });
